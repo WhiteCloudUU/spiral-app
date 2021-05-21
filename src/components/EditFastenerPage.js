@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FastenerForm from './FastenerForm';
-import { editFastener, removeFastener } from '../actions/fasteners';
+import { startEditFastener, startRemoveFastener } from '../actions/fasteners';
 
 export class EditFastenerPage extends React.Component {
     onSubmit = (fastener) => {
-        this.props.editFastener(this.props.fastener.id, fastener);
+        this.props.startEditFastener(this.props.fastener.id, fastener);
         this.props.history.push('/');
     }
     render() {
@@ -18,8 +18,8 @@ export class EditFastenerPage extends React.Component {
                 />
                 <button
                     onClick={() => {
-                        props.removeExpense(props.expense.id);
-                        props.history.push('/');
+                        this.props.startRemoveFastener(this.props.fastener.id);
+                        this.props.history.push('/');
                     }}
                 >
                     Remove Fastener
@@ -33,8 +33,8 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    removeFastener: (id) => dispatch(removeFastener(id)),
-    editFastener: (id, fastener) => dispatch(editFastener(id, fastener))
+    startRemoveFastener: (id) => dispatch(startRemoveFastener(id)),
+    startEditFastener: (id, fastener) => dispatch(startEditFastener(id, fastener))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditFastenerPage);

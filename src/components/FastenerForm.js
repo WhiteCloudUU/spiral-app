@@ -5,8 +5,8 @@ export default class FastenerForm extends React.Component {
     super(props);
 
     this.state = {
-      size: props.fastener ? props.fastener.size : '',
-      length: props.fastener ? props.fastener.length : '',
+      size: props.fastener ? props.fastener.size.toString() : '',
+      length: props.fastener ? props.fastener.length.toString() : '',
 
       headType: props.fastener ? props.fastener.headType : '',
       driveType: props.fastener ? props.fastener.driveType : '',
@@ -14,6 +14,8 @@ export default class FastenerForm extends React.Component {
 
       thruHolePart: props.fastener ? props.fastener.thruHolePart : '',
       threadedHolePart: props.fastener ? props.fastener.threadedHolePart : '',
+
+      quantity: props.fastener ? props.fastener.quantity.toString() : '1',
 
       error: ''
     };
@@ -60,22 +62,31 @@ export default class FastenerForm extends React.Component {
     this.setState(() => ({ threadedHolePart }));
   };
 
+  onQuantityChange = (e) => {
+    const quantity = e.target.value;
+
+    if (!quantity || quantity.match(/^\d{1,}$/)) {
+      this.setState(() => ({ quantity }));
+    }
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
 
     if (!this.state.size || !this.state.length || !this.state.headType
       || !this.state.driveType || !this.state.material) {
-      this.setState(() => ({ error: 'Please fill out all missing fields.' }));
+      this.setState(() => ({ error: 'Please fill out the missing fields.' }));
     } else {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
-        size: this.state.size,
-        length: this.state.length,
+        size: parseFloat(this.state.size),
+        length: parseInt(this.state.length),
         headType: this.state.headType,
         driveType: this.state.driveType,
         material: this.state.material,
         thruHolePart: this.state.thruHolePart,
-        threadedHolePart: this.state.threadedHolePart
+        threadedHolePart: this.state.threadedHolePart,
+        quantity: parseInt(this.state.quantity)
       });
     }
   };
@@ -104,7 +115,7 @@ export default class FastenerForm extends React.Component {
             value={this.state.headType}
             onChange={this.onHeadTypeChange}
           >
-            <option value="" defaultValue disabled hidden>
+            <option value="" defaultValue disabled>
               --- Select head type ---
             </option>
             <option value="SH">Socket Head</option>
@@ -117,7 +128,7 @@ export default class FastenerForm extends React.Component {
             value={this.state.driveType}
             onChange={this.onDriveTypeChange}
           >
-            <option value="" defaultValue disabled hidden>
+            <option value="" defaultValue disabled>
               --- Select drive type ---
             </option>
             <option value="HX">Hex</option>
@@ -130,7 +141,7 @@ export default class FastenerForm extends React.Component {
             value={this.state.material}
             onChange={this.onMaterialChange}
           >
-            <option value="" defaultValue disabled hidden>
+            <option value="" defaultValue disabled>
               --- Select material ---
             </option>
             <option value="steel">Steel</option>
@@ -152,8 +163,15 @@ export default class FastenerForm extends React.Component {
             onChange={this.onThreadedHolePartChange}
           />
 
+          <input
+            type="text"
+            placeholder="Quantity"
+            value={this.state.quantity}
+            onChange={this.onQuantityChange}
+          />
+
           <div>
-            <button>Add Fastener</button>
+            <button>Save Fastener</button>
           </div>
 
         </form>

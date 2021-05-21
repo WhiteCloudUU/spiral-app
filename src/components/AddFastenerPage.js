@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FastenerForm from './FastenerForm';
-import { addFastener } from '../actions/fasteners';
+import { startAddFastener } from '../actions/fasteners';
 
 export class AddFastenerPage extends React.Component {
     onSubmit = (fastener) => {
-        this.props.addFastener(fastener);
+        this.props.startAddFastener(fastener);
         this.props.history.push('/');
     }
     render() {
@@ -22,7 +22,7 @@ export class AddFastenerPage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => (
     {
-        addFastener: (expense) => dispatch(addFastener(expense))
+        startAddFastener: (expense) => dispatch(startAddFastener(expense))
     }
 )
 
