@@ -1,0 +1,19 @@
+
+.header__title {
+    color: $off-black;
+    text-decoration: none;
+    text-align: center;
+}
+
+// Not used
+.header {
+    background: $off-white;
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: $s-size 0;
+}

@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
-    <header>
-        <h1>Spiral</h1>
-        <NavLink to="/" activeClassName="is-active">Dashboard</NavLink>
-        <NavLink to="/create" activeClassName="is-active">Add Fastener</NavLink>
+    <header className="container container-box">
+        
+            <Link to="/" className="header__title">
+                <h1>Spiral</h1>
+            </Link>
+        
     </header>
 );
 
