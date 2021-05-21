@@ -9,7 +9,6 @@ export const addFastener = ({
     material = '',
     thruHolePart = '',
     threadedHolePart = '',
-    quantity = 0
 } = {}) => {
     const fastener = { 
         id: uuid(),
@@ -17,7 +16,7 @@ export const addFastener = ({
         headType, driveType, 
         material, 
         thruHolePart, threadedHolePart,
-        quantity 
+        quantity: 1
     };
     
     return {
