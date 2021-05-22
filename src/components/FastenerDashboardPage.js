@@ -6,11 +6,10 @@ const ExpenseDashboardPage = () => (
     <div className="container">
         <div className="page-summary">
             <Link to="/create" className="button">
-                New Fastener
+                Add Fastener
             </Link>
         </div>
         
-
         <FastenerList />
     </div>
 );

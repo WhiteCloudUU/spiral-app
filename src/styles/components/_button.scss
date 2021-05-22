@@ -1,17 +1,23 @@
 .button {
-    font-size: $huge-font;
-    font-weight: 300;
+    font-size: $large-font;
+    font-weight: 500;
 
     color: $off-black;
     background-color: $off-white;
 
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: $s-size;
-    padding: $s-size;
+    padding: $m-size;
 
     display: inline-block;
     line-height: 1;
     text-decoration: none;
+
+    &:hover {
+        background-color: $off-black;
+        color: $off-white;
+    }
+    
 }
 
 

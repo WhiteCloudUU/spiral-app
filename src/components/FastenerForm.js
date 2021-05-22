@@ -51,7 +51,7 @@ export default class FastenerForm extends React.Component {
     const material = e.target.value;
     this.setState(() => ({ material }));
   }
-  
+
   onThruHolePartChange = (e) => {
     const thruHolePart = e.target.value;
     this.setState(() => ({ thruHolePart }));
@@ -92,89 +92,108 @@ export default class FastenerForm extends React.Component {
   };
   render() {
     return (
-        <form onSubmit={this.onSubmit}>
+      <div>
+        <div className="page-summary">
+          <button className="button" onClick={this.onSubmit}>
+            Save Fastener
+          </button>
+        </div>
 
-          {this.state.error && <p>{this.state.error}</p>}
+        <form className="form">
+          {this.state.error && <p className="form__error">{this.state.error}</p>}
+          <div className="form__box">
+            <p className="form__title">Info</p>
+            <input
+              className="text-input"
+              type="text"
+              placeholder="Size (mm)"
+              autoFocus
+              value={this.state.size}
+              onChange={this.onSizeChange}
+            />
 
-          <input
-            type="text"
-            placeholder="Size (mm)"
-            autoFocus
-            value={this.state.size}
-            onChange={this.onSizeChange}
-          />
+            <input
+              className="text-input"
+              type="text"
+              placeholder="Length (mm)"
+              value={this.state.length}
+              onChange={this.onLengthChange}
+            />
 
-          <input
-            type="text"
-            placeholder="Length (mm)"
-            value={this.state.length}
-            onChange={this.onLengthChange}
-          />
-
-          <select
-            value={this.state.headType}
-            onChange={this.onHeadTypeChange}
-          >
-            <option value="" defaultValue disabled>
-              --- Select head type ---
+            <select
+              className="select"
+              value={this.state.headType}
+              onChange={this.onHeadTypeChange}
+            >
+              <option value="" defaultValue disabled>
+                --- Select Head Type ---
             </option>
-            <option value="SH">Socket Head</option>
-            <option value="RH">Rounded Head</option>
-            <option value="FH">Flat Head</option>
-            
-          </select>
+              <option value="SH">Socket Head</option>
+              <option value="RH">Rounded Head</option>
+              <option value="FH">Flat Head</option>
+            </select>
 
-          <select
-            value={this.state.driveType}
-            onChange={this.onDriveTypeChange}
-          >
-            <option value="" defaultValue disabled>
-              --- Select drive type ---
+            <select
+              className="select"
+              value={this.state.driveType}
+              onChange={this.onDriveTypeChange}
+            >
+              <option value="" defaultValue disabled>
+                --- Select Drive Type ---
             </option>
-            <option value="HX">Hex</option>
-            <option value="TX">Torx</option>
-            <option value="SL">Slotted</option>
-            <option value="CS">Cruciform</option>
-          </select>
+              <option value="HX">Hex</option>
+              <option value="TX">Torx</option>
+              <option value="SL">Slotted</option>
+              <option value="CS">Cruciform</option>
+            </select>
 
-          <select
-            value={this.state.material}
-            onChange={this.onMaterialChange}
-          >
-            <option value="" defaultValue disabled>
-              --- Select material ---
+            <select
+              className="select"
+              value={this.state.material}
+              onChange={this.onMaterialChange}
+            >
+              <option value="" defaultValue disabled>
+                --- Select Material ---
             </option>
-            <option value="steel">Steel</option>
-            <option value="stainless">Stainless Steel</option>
-            <option value="plastic">Plastic</option>
-          </select>
+              <option value="steel">Steel</option>
+              <option value="stainless">Stainless Steel</option>
+              <option value="plastic">Plastic</option>
+            </select>
 
-          <input
-            type="text"
-            placeholder="Thru Hole Part Name"
-            value={this.state.thruHolePart}
-            onChange={this.onThruHolePartChange}
-          />
+          </div>
 
-          <input
-            type="text"
-            placeholder="Thread Hole Part Name"
-            value={this.state.threadedHolePart}
-            onChange={this.onThreadedHolePartChange}
-          />
+          <div className="form__box">
+            <p className="form__title">Description</p>
+            <input
+              type="text"
+              className="text-input"
+              placeholder="Thru Hole Part Name"
+              value={this.state.thruHolePart}
+              onChange={this.onThruHolePartChange}
+            />
 
-          <input
-            type="text"
-            placeholder="Quantity"
-            value={this.state.quantity}
-            onChange={this.onQuantityChange}
-          />
+            <input
+              type="text"
+              className="text-input"
+              placeholder="Thread Hole Part Name"
+              value={this.state.threadedHolePart}
+              onChange={this.onThreadedHolePartChange}
+            />
+          </div>
 
-          <div>
-            <button>Save Fastener</button>
+          <div className="form__box">
+            <p className="form__title">Quantity</p>
+            <input
+              type="text"
+              className="text-input"
+              placeholder="Quantity"
+              value={this.state.quantity}
+              onChange={this.onQuantityChange}
+            />
           </div>
 
         </form>
+      </div>
     )
   }
 }

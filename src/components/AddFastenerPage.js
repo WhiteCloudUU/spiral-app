@@ -10,8 +10,8 @@ export class AddFastenerPage extends React.Component {
     }
     render() {
         return (
-            <div>
-                <h1>Add Fastener</h1>
+            <div className="container">
+                
                 <FastenerForm 
                     onSubmit={this.onSubmit}
                 />
