@@ -2,17 +2,17 @@
     font-size: $large-font;
     font-weight: 500;
 
-    color: $off-black;
-    background-color: $off-white;
-
     border: 2px solid black;
     border-radius: $s-size;
+
     padding: $m-size;
 
     display: inline-block;
     line-height: 1;
     text-decoration: none;
 
+    color: $off-black;
+    background-color: $off-white;
     &:hover {
         background-color: $off-black;
         color: $off-white;

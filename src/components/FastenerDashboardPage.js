@@ -4,6 +4,7 @@ import FastenerList from './FastenerList';
 
 const ExpenseDashboardPage = () => (
     <div className="container">
+
         <div className="page-summary">
             <Link to="/create" className="button">
                 Add Fastener
@@ -11,6 +12,7 @@ const ExpenseDashboardPage = () => (
         </div>
         
         <FastenerList />
+        
     </div>
 );
 

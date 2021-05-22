@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FastenerForm from './FastenerForm';
+import FastenerInfo from './FastenerInfo';
 import { startEditFastener, startRemoveFastener } from '../actions/fasteners';
 
 export class EditFastenerPage extends React.Component {
@@ -8,22 +9,29 @@ export class EditFastenerPage extends React.Component {
         this.props.startEditFastener(this.props.fastener.id, fastener);
         this.props.history.push('/');
     }
+    onRemoveFastener = () => {
+        this.props.startRemoveFastener(this.props.fastener.id);
+        this.props.history.push('/');
+    }
     render() {
         return (
-            <div>
-                <h1>Edit Fastener</h1>
+            <div className="container">
+
                 <FastenerForm
                     onSubmit={this.onSubmit}
                     fastener={this.props.fastener}
                 />
-                <button
-                    onClick={() => {
-                        this.props.startRemoveFastener(this.props.fastener.id);
-                        this.props.history.push('/');
-                    }}
-                >
-                    Remove Fastener
-                </button>
+                <div className="page-summary">
+                    <button
+                        className="button"
+                        onClick={this.onRemoveFastener}
+                    >
+                        Remove Fastener
+                    </button>
+                </div>
+
+                <FastenerInfo />
+
             </div>
         )
     }

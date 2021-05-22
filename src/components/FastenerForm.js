@@ -102,7 +102,7 @@ export default class FastenerForm extends React.Component {
         <form className="form">
           {this.state.error && <p className="form__error">{this.state.error}</p>}
           <div className="form__box">
-            <p className="form__title">Info</p>
+            <p className="form__title">Parameters</p>
             <input
               className="text-input"
               type="text"

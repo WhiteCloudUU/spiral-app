@@ -1,0 +1,54 @@
+.list__box {
+    border: 2px solid black;
+    border-radius: $s-size;
+
+    background: $off-white;
+
+    padding: $s-size;
+}
+
+.list__title {
+    border-bottom: 1px solid $off-black;
+    
+    display: flex;
+    justify-content: space-between;
+
+    padding: $s-size;
+    color: $off-black;
+}
+
+.list__item {
+    border-bottom: 1px solid $off-black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    text-decoration: none;
+    font-size: $large-font;
+
+    padding: $s-size;
+    color: $off-black;
+
+    transition: background .3s ease;
+    &:hover {
+      background: $off-black;
+      color: $off-white;
+    }
+}
+
+
+.list-item__title {
+  word-break: break-all;
+}
+
+
+.list__message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+  color: grey;
+  font-style: italic;
+  margin: $s-size 0 0 0;
+}

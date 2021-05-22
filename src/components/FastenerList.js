@@ -3,17 +3,32 @@ import { connect } from 'react-redux';
 import FastenerListItem from './FastenerListItem';
 
 export const FastenerList = (props) => (
-  <div>
-    {
-      props.fasteners.length === 0 ? (
-        <p>No Fasteners</p>
-      ) : (
+  <div className="list__box">
+    <div className="list__title">
+      <div>
+        Fastener / Description
+      </div>
+
+      <div>
+        Quantity
+      </div>
+    </div>
+
+    <div>
+      {
+        props.fasteners.length === 0 ? (
+          <div className="list__message">
+            <span>No fasteners</span>
+          </div>
+        ) : (
           props.fasteners.map((fastener) => {
             return <FastenerListItem key={fastener.id} fastener={fastener} />;
           })
         )
-    }
+      }
+    </div>
   </div>
+
 );
 
 const mapStateToProps = (state) => {
