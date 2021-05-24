@@ -24,8 +24,9 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 store.dispatch(startSetFasteners())
   .then(() => {
     ReactDOM.render(jsx, document.getElementById('app'));
-  })
+  });
 
+console.log(store.getState());
 
 
 

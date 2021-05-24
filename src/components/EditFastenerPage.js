@@ -20,15 +20,8 @@ export class EditFastenerPage extends React.Component {
                 <FastenerForm
                     onSubmit={this.onSubmit}
                     fastener={this.props.fastener}
+                    onRemoveFastener={this.onRemoveFastener}
                 />
-                <div className="page-summary">
-                    <button
-                        className="button"
-                        onClick={this.onRemoveFastener}
-                    >
-                        Remove Fastener
-                    </button>
-                </div>
 
                 <FastenerInfo />
 

@@ -15,6 +15,7 @@ export class AddFastenerPage extends React.Component {
                 <FastenerForm 
                     onSubmit={this.onSubmit}
                 />
+                
             </div>
         )  
     }

@@ -1,0 +1,14 @@
+.double-button {
+    margin-bottom: $s-size;
+    padding: 0;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.single-button {
+    margin-bottom: $s-size;
+    padding: 0;
+    text-align: right;
+}
+  

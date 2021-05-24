@@ -90,14 +90,39 @@ export default class FastenerForm extends React.Component {
       });
     }
   };
+
   render() {
     return (
       <div>
-        <div className="page-summary">
-          <button className="button" onClick={this.onSubmit}>
-            Save Fastener
-          </button>
-        </div>
+        {!!this.props.onRemoveFastener ?
+          (
+            <div className="double-button">
+              <div>
+                <button
+                  className="button"
+                  onClick={this.props.onRemoveFastener}
+                >
+                  Remove Fastener
+                </button>
+              </div>
+
+              <div>
+                <button className="button" onClick={this.onSubmit}>
+                  Save Fastener
+                </button>
+              </div>
+            </div>
+          )
+          :
+          (
+            <div className="single-button">
+              <button className="button" onClick={this.onSubmit}>
+                Save Fastener
+              </button>
+            </div>
+          )
+        }
+
 
         <form className="form">
           {this.state.error && <p className="form__error">{this.state.error}</p>}
