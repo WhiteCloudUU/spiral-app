@@ -15,7 +15,6 @@ const FastenerListItem = (props) => {
                 <p>{thruHolePart}</p>
                 <p>{threadedHolePart}</p>
             </div>
-            
 
             <div>
                 <p>{quantity}</p>

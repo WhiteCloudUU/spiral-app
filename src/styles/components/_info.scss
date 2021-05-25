@@ -1,21 +1,12 @@
-.info__box {
-    border: 2px solid black;
-    border-radius: $s-size;
-    background-color: $off-white;
-
-    padding: $s-size;
-}
 
 .info__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    margin: $s-size 0;
 }
 
-.info__title {
-
+.info__label {
     font-style: bold;
     font-size: $large-font;
 }

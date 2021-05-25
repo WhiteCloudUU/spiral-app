@@ -1,4 +1,6 @@
 import React from 'react';
+import { fastenerMetricSize } from '../utils/fastenerDatabase';
+import FastenerInfo from './FastenerInfo';
 
 export default class FastenerForm extends React.Component {
   constructor(props) {
@@ -23,10 +25,7 @@ export default class FastenerForm extends React.Component {
 
   onSizeChange = (e) => {
     const size = e.target.value;
-
-    if (!size || size.match(/^\d{1,}(\.\d{0,1})?$/)) {
-      this.setState(() => ({ size }));
-    }
+    this.setState(() => ({ size }));
   };
 
   onLengthChange = (e) => {
@@ -122,20 +121,25 @@ export default class FastenerForm extends React.Component {
             </div>
           )
         }
-
-
+        
         <form className="form">
           {this.state.error && <p className="form__error">{this.state.error}</p>}
           <div className="form__box">
             <p className="form__title">Parameters</p>
-            <input
-              className="text-input"
-              type="text"
-              placeholder="Size (mm)"
-              autoFocus
+
+            <select
+              className="select"
               value={this.state.size}
               onChange={this.onSizeChange}
-            />
+            >
+
+              <option value="" defaultValue disabled>
+                --- Select Metric Size ---
+              </option>
+              {fastenerMetricSize.map((size) => (
+                <option value={size} key={size}>{`M${size}`}</option>
+              ))}
+            </select>
 
             <input
               className="text-input"
@@ -178,9 +182,11 @@ export default class FastenerForm extends React.Component {
               onChange={this.onMaterialChange}
             >
               <option value="" defaultValue disabled>
-                --- Select Material ---
+                --- Select Material and Class ---
             </option>
-              <option value="steel">Steel</option>
+              <option value="8.8">Steel (Class 8.8)</option>
+              <option value="10.9">Steel (Class 10.9)</option>
+              <option value="12.9">Steel (Class 12.9)</option>
               <option value="stainless">Stainless Steel</option>
               <option value="plastic">Plastic</option>
             </select>
@@ -218,6 +224,15 @@ export default class FastenerForm extends React.Component {
           </div>
 
         </form>
+
+        {
+          this.state.size && this.state.material 
+          && <FastenerInfo 
+            size={this.state.size}
+            material={this.state.material}
+            />
+        }
+        
       </div>
     )
   }

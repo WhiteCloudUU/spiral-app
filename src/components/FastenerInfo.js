@@ -1,31 +1,38 @@
 import React from 'react';
+import { fastenerDatabase } from '../utils/fastenerDatabase';
 
-const FastenerInfo = (props) => (
+const FastenerInfo = (props) => {
+    const minEngagement = props.size * 1.5;
     
-    <div className="info__box">
-        <p className="form__title">Technical Information</p>
-        <div className="info__item">
-            <label className="info__title">Minimum Thread Engagement (mm)</label>
-            <input
-                type="text"
-                disabled    
-                className="text-input"
-                value={1.5}
-            />
-        </div>
+    const tighteningTorque = fastenerDatabase[props.size]["tighteningTorque"][props.material];
 
-        <div className="info__item">
-            <label className="info__title">Preload torque (Nm)</label>
-            <input
-                type="text"
-                disabled    
-                className="text-input"
-                value={2}
-            />
-        </div>
+    return (
+        <div className="form__box">
+            <p className="form__title">Technical Information</p>
 
-       
-    </div>
-)
+            
+            <div className="info__item">
+                <label className="info__label">Tighentening Torque (Nm)</label>
+                <input
+                    type="text"
+                    disabled
+                    className="text-input"
+                    value={tighteningTorque}
+                />
+            </div>
+
+            <div className="info__item">
+                <label className="info__label">Minimum Thread Engagement (mm)</label>
+                <input
+                    disabled
+                    type="text"
+                    className="text-input"
+                    value={minEngagement}
+                />
+            </div>
+
+        </div>
+    )
+}
 
 export default FastenerInfo;

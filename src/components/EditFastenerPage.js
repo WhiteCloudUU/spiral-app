@@ -23,7 +23,7 @@ export class EditFastenerPage extends React.Component {
                     onRemoveFastener={this.onRemoveFastener}
                 />
 
-                <FastenerInfo />
+                
 
             </div>
         )
