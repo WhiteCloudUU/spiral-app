@@ -1,15 +1,14 @@
 import React from 'react';
-import { fastenerDatabase } from '../utils/fastenerDatabase';
+import { fastenerTechInfo } from '../utils/fastenerDatabase';
 
 const FastenerInfo = (props) => {
     const minEngagement = props.size * 1.5;
     
-    const tighteningTorque = fastenerDatabase[props.size]["tighteningTorque"][props.material];
+    const tighteningTorque = fastenerTechInfo[props.size]["tighteningTorque"][props.material];
 
     return (
         <div className="form__box">
             <p className="form__title">Technical Information</p>
-
             
             <div className="info__item">
                 <label className="info__label">Tighentening Torque (Nm)</label>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { CSVLink, CSVDownload } from "react-csv";
+import FastenerFilters from './FastenerFilter';
 import FastenerList from './FastenerList';
 import aggregateFasteners from '../utils/aggregateFasteners';
 
@@ -9,7 +10,8 @@ const ExpenseDashboardPage = (props) => {
 
     return (
         <div className="container">
-
+            <FastenerFilters />
+            
             <div className="double-button">
 
                 <CSVLink
@@ -40,7 +42,7 @@ const ExpenseDashboardPage = (props) => {
 
 const mapStateToProps = (state) => (
     {
-        fastenerCount: state.fasteners,
+        fastenerCount: state.fasteners.length,
         fastenerCsvData: aggregateFasteners(state.fasteners)
     }
 

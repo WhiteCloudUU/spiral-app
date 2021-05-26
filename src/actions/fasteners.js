@@ -11,6 +11,7 @@ export const addFastener = (fastener) => {
 
 export const startAddFastener = (fastenerData = {}) => {
     const {
+        type = '',
         size = 0,
         length = 0,
         headType = '',
@@ -22,6 +23,7 @@ export const startAddFastener = (fastenerData = {}) => {
     } = fastenerData;
 
     const fastener = { 
+        type,
         size, length, 
         headType, driveType, 
         material, 
@@ -58,8 +60,6 @@ export const startEditFastener = (id, updates) => {
             })
     }
 }
-
-
 
 
 // Remove Fastener

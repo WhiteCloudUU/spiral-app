@@ -6,7 +6,7 @@ export default (fasteners) => {
     ];
 
     fasteners.forEach((fastener) => {
-        const fastenerName = abbreviateFastener(fastener, 'Screw');
+        const fastenerName = abbreviateFastener(fastener);
         const data = [
             fastenerName,
             `${fastener.thruHolePart} - ${fastener.threadedHolePart}`,

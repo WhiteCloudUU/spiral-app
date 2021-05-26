@@ -6,11 +6,11 @@ export const FastenerList = (props) => (
   <div className="list__box">
     <div className="list__title">
       <div>
-        Fastener / Description
+        Fastener 
       </div>
 
       <div>
-        Quantity
+        Description / Quantity
       </div>
     </div>
 

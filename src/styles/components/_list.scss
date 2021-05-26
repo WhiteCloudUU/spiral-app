@@ -27,7 +27,7 @@
     text-decoration: none;
     font-size: $large-font;
 
-    padding: $s-size;
+    padding: 0 $s-size;
     color: $off-black;
 
     transition: background .3s ease;
@@ -40,6 +40,16 @@
 
 .list-item__title {
   word-break: break-all;
+  font-weight: bold;
+}
+
+.list-item__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    :first-child {
+      margin-right: $l-size;
+    }
 }
 
 

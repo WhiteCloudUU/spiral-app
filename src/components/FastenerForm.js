@@ -72,22 +72,23 @@ export default class FastenerForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    if (!this.state.size || !this.state.length || !this.state.headType
-      || !this.state.driveType || !this.state.material) {
-      this.setState(() => ({ error: 'Please fill out the missing fields.' }));
-    } else {
-      this.setState(() => ({ error: '' }));
-      this.props.onSubmit({
-        size: parseFloat(this.state.size),
-        length: parseInt(this.state.length),
-        headType: this.state.headType,
-        driveType: this.state.driveType,
-        material: this.state.material,
-        thruHolePart: this.state.thruHolePart,
-        threadedHolePart: this.state.threadedHolePart,
-        quantity: parseInt(this.state.quantity)
-      });
-    }
+    // if (!this.state.size || !this.state.length || !this.state.headType
+    //   || !this.state.driveType || !this.state.material || !this.state.quantity)
+    if (!this.state.size || !this.state.length || !this.state.quantity) {
+        this.setState(() => ({ error: 'Please fill out the missing fields.' }));
+      } else {
+        this.setState(() => ({ error: '' }));
+        this.props.onSubmit({
+          size: parseFloat(this.state.size),
+          length: parseInt(this.state.length),
+          headType: this.state.headType,
+          driveType: this.state.driveType,
+          material: this.state.material,
+          thruHolePart: this.state.thruHolePart,
+          threadedHolePart: this.state.threadedHolePart,
+          quantity: parseInt(this.state.quantity)
+        });
+      }
   };
 
   render() {
@@ -121,9 +122,11 @@ export default class FastenerForm extends React.Component {
             </div>
           )
         }
-        
+
         <form className="form">
+
           {this.state.error && <p className="form__error">{this.state.error}</p>}
+
           <div className="form__box">
             <p className="form__title">Parameters</p>
 
@@ -136,9 +139,17 @@ export default class FastenerForm extends React.Component {
               <option value="" defaultValue disabled>
                 --- Select Metric Size ---
               </option>
-              {fastenerMetricSize.map((size) => (
-                <option value={size} key={size}>{`M${size}`}</option>
-              ))}
+              {Object.keys(fastenerMetricSize).map((size) => {
+                const pitch = fastenerMetricSize[size];
+                return (
+                  <option
+                    value={size}
+                    key={size}>
+                    {`M${size} x ${pitch}`}
+                  </option>
+                )
+              })
+              }
             </select>
 
             <input
@@ -169,7 +180,7 @@ export default class FastenerForm extends React.Component {
             >
               <option value="" defaultValue disabled>
                 --- Select Drive Type ---
-            </option>
+              </option>
               <option value="HX">Hex</option>
               <option value="TX">Torx</option>
               <option value="SL">Slotted</option>
@@ -183,10 +194,10 @@ export default class FastenerForm extends React.Component {
             >
               <option value="" defaultValue disabled>
                 --- Select Material and Class ---
-            </option>
-              <option value="8.8">Steel (Class 8.8)</option>
-              <option value="10.9">Steel (Class 10.9)</option>
-              <option value="12.9">Steel (Class 12.9)</option>
+              </option>
+              <option value="class8.8">Steel (Class 8.8)</option>
+              <option value="class10.9">Steel (Class 10.9)</option>
+              <option value="class12.9">Steel (Class 12.9)</option>
               <option value="stainless">Stainless Steel</option>
               <option value="plastic">Plastic</option>
             </select>
@@ -226,13 +237,14 @@ export default class FastenerForm extends React.Component {
         </form>
 
         {
-          this.state.size && this.state.material 
-          && <FastenerInfo 
+          (this.state.size && this.state.material)
+          &&
+          <FastenerInfo
             size={this.state.size}
             material={this.state.material}
-            />
+          />
         }
-        
+
       </div>
     )
   }

@@ -3,23 +3,25 @@ import { Link } from 'react-router-dom';
 import abbreviateFastener from '../utils/abbreviateFastener';
 
 const FastenerListItem = (props) => {
-    const fastener = abbreviateFastener(props.fastener, 'Screw');
+    const fastener = abbreviateFastener(props.fastener);
     const { id, thruHolePart, threadedHolePart, quantity } = props.fastener;
     return (
         <Link className="list__item" to={`/edit/${id}`}>
             <div className="list-item__title">
-                <h3>{fastener}</h3>
+                <p>{fastener}</p>
             </div>
 
-            <div>
-                <p>{thruHolePart}</p>
-                <p>{threadedHolePart}</p>
-            </div>
+            <div className="list-item__box">
+                <div>
+                    <p>{thruHolePart}</p>
+                    <p>{threadedHolePart}</p>
+                </div>
 
-            <div>
-                <p>{quantity}</p>
+                <div>
+                    <p>{quantity}</p>
+                </div>
             </div>
-
+            
         </Link>
     )
 };

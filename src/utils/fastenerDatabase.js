@@ -1,10 +1,4 @@
-export const fastenerDatabase = {
-    1: {
-        preload: undefined,
-        tighteningTorque: undefined,
-        minEngagement: 0
-    },
-
+export const fastenerTechInfo = {
     1.6: {
         preload: {
             "8.8": 530,
@@ -59,17 +53,98 @@ export const fastenerDatabase = {
             12.9: 2.3
         },
         minEngagement: 0
+    },
+
+    4: {
+        preload: {
+            8.8: 3900,
+            10.9: 5480,
+            12.9: 6580
+        },
+        tighteningTorque: {
+            8.8: 3.1,
+            10.9: 4.4,
+            12.9: 5.25
+        },
+        minEngagement: 0
+    },
+
+    5: {
+        preload: {
+            8.8: 6380,
+            10.9: 8980,
+            12.9: 10800
+        },
+        tighteningTorque: {
+            8.8: 6.15,
+            10.9: 8.65,
+            12.9: 10.4	
+        },
+        minEngagement: 0
+    },
+
+    6: {
+        preload: {
+            8.8: 9010,
+            10.9: 12650,
+            12.9: 15200
+        },
+        tighteningTorque: {
+            8.8: 10.5,
+            10.9: 15,
+            12.9: 18
+        },
+        minEngagement: 0
+    },
+
+    8: {
+        preload: {
+            8.8: 9010,
+            10.9: 12650,
+            12.9: 15200
+        },
+        tighteningTorque: {
+            8.8: 10.5,
+            10.9: 15,
+            12.9: 18
+        },
+        minEngagement: 0
+    },
+
+    10: {
+        preload: {
+            8.8: 16550,
+            10.9: 23200,
+            12.9: 27900
+        },
+        tighteningTorque: {
+            8.8: 26,
+            10.9: 36,
+            12.9: 43
+        },
+        minEngagement: 0
     }
+
 }
 
-export const fastenerMetricSize = [1, 1.6, 2, 3, 4, 5, 6, 8, 10]
+export const fastenerMetricSize = {
+    1.6: 0.35, 
+    2: 0.4,
+    2.5: 0.45,
+    3: 0.5, 
+    4: 0.7, 
+    5: 0.8, 
+    6: 1.0, 
+    8: 1.25, 
+    10: 1.5
+}
 
 
 
 
 /*
 
-minimum engagement: related to the d
+minimum engagement length: related to the d
 
 preload: related to the class and d
 

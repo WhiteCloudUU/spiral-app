@@ -18,3 +18,16 @@
     @extend .text-input;
     height: 10rem;
 }
+
+.inputs-group {
+    margin-bottom: $s-size;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: row;
+
+    > * {
+        margin-right: $s-size;
+    }
+
+}
