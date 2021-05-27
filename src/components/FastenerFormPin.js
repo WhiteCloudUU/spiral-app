@@ -1,20 +1,12 @@
 import React from 'react';
-import { fastenerSize, fastenerPitch } from '../utils/fastenerDatabase';
-import FastenerInfo from './FastenerInfo';
 
-export default class FastenerForm extends React.Component {
+export default class FastenerFormPin extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      type: props.fastener ? props.fastener.type : '',
-
       size: props.fastener ? props.fastener.size.toString() : '',
       length: props.fastener ? props.fastener.length.toString() : '',
-
-      headType: props.fastener ? props.fastener.headType : '',
-      driveType: props.fastener ? props.fastener.driveType : '',
-      material: props.fastener ? props.fastener.material : '',
 
       thruHolePart: props.fastener ? props.fastener.thruHolePart : '',
       threadedHolePart: props.fastener ? props.fastener.threadedHolePart : '',
@@ -25,14 +17,12 @@ export default class FastenerForm extends React.Component {
     };
   }
 
-  onTypeChange = (e) => {
-    const type = e.target.value;
-    this.setState(() => ({ type }));
-  }
-
   onSizeChange = (e) => {
     const size = e.target.value;
-    this.setState(() => ({ size }));
+
+    if (!size || size.match(/^\d{1,2}$/)) {
+      this.setState(() => ({ size }));
+    }
   };
 
   onLengthChange = (e) => {
@@ -42,21 +32,6 @@ export default class FastenerForm extends React.Component {
       this.setState(() => ({ length }));
     }
   };
-
-  onHeadTypeChange = (e) => {
-    const headType = e.target.value;
-    this.setState(() => ({ headType }));
-  }
-
-  onDriveTypeChange = (e) => {
-    const driveType = e.target.value;
-    this.setState(() => ({ driveType }));
-  }
-
-  onMaterialChange = (e) => {
-    const material = e.target.value;
-    this.setState(() => ({ material }));
-  }
 
   onThruHolePartChange = (e) => {
     const thruHolePart = e.target.value;
@@ -79,19 +54,14 @@ export default class FastenerForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    if (!this.state.size || !this.state.length || !this.state.headType
-      || !this.state.driveType || !this.state.material || !this.state.quantity) {
+    if (!this.state.size || !this.state.length || !this.state.quantity) {
       this.setState(() => ({ error: 'Please fill out the missing fields.' }));
     } else {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
-        type: this.state.type,
-
         size: parseFloat(this.state.size),
         length: parseInt(this.state.length),
-        headType: this.state.headType,
-        driveType: this.state.driveType,
-        material: this.state.material,
+        
         thruHolePart: this.state.thruHolePart,
         threadedHolePart: this.state.threadedHolePart,
         quantity: parseInt(this.state.quantity)
@@ -138,28 +108,13 @@ export default class FastenerForm extends React.Component {
 
           <div className="form__box">
             <p className="form__title">Parameters</p>
-            <select
-              className="select"
+            <input
+              className="text-input"
+              type="text"
+              placeholder="Size (mm)"
               value={this.state.size}
               onChange={this.onSizeChange}
-            >
-              <option value="" defaultValue disabled>
-                --- Select Metric Size ---
-              </option>
-              {
-                fastenerSize.map((size) => {
-                  const pitch = fastenerPitch[size];
-                  return (
-                    <option
-                      value={size}
-                      key={size}>
-                      {`M${size} x ${pitch}`}
-                    </option>
-                  )
-                })
-              }
-
-            </select>
+            />
 
             <input
               className="text-input"
@@ -168,49 +123,6 @@ export default class FastenerForm extends React.Component {
               value={this.state.length}
               onChange={this.onLengthChange}
             />
-            
-            <select
-              className="select"
-              value={this.state.headType}
-              onChange={this.onHeadTypeChange}
-            >
-              <option value="" defaultValue disabled>
-                --- Select Head Type ---
-              </option>
-              <option value="SH">Socket Head</option>
-              <option value="RH">Rounded Head</option>
-              <option value="FH">Flat Head</option>
-            </select>
-
-            <select
-              className="select"
-              value={this.state.driveType}
-              onChange={this.onDriveTypeChange}
-            >
-              <option value="" defaultValue disabled>
-                --- Select Drive Type ---
-              </option>
-                <option value="HX">Hex</option>
-                <option value="TX">Torx</option>
-                <option value="SL">Slotted</option>
-                <option value="CS">Cruciform</option>
-              </select>
-
-            <select
-              className="select"
-              value={this.state.material}
-              onChange={this.onMaterialChange}
-            >
-              <option value="" defaultValue disabled>
-                --- Select Material and Class ---
-              </option>
-              <option value="class8.8">Steel (Class 8.8)</option>
-              <option value="class10.9">Steel (Class 10.9)</option>
-              <option value="class12.9">Steel (Class 12.9)</option>
-              <option value="A2">Stainless (18-8, 304, A2)</option>
-              <option value="A4">Stainless (18-10, 316, A4)</option>
-              <option value="plastic">Plastic</option>
-            </select>
 
           </div>
 
@@ -245,15 +157,6 @@ export default class FastenerForm extends React.Component {
           </div>
 
         </form>
-
-        {
-          (this.state.size && this.state.material)
-          &&
-          <FastenerInfo
-            size={this.state.size}
-            material={this.state.material}
-          />
-        }
 
       </div>
     )

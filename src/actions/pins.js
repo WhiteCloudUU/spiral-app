@@ -1,22 +1,19 @@
 import database from '../firebase/firebase'
 
 // Add Fastener
-export const addFastener = (fastener) => {
+export const addPin = (fastener) => {
     
     return {
-        type: 'ADD_FASTENER',
+        type: 'ADD_PIN',
         fastener
     }
 }
 
 export const startAddFastener = (fastenerData = {}) => {
     const {
-        
         size = 0,
         length = 0,
-        headType = '',
-        driveType = '',
-        material = '',
+        
         thruHolePart = '',
         threadedHolePart = '',
         quantity = 1
