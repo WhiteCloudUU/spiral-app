@@ -1,4 +1,4 @@
-import { fastenerMetricSize } from '../utils/fastenerDatabase';
+import { fastenerPitch } from '../utils/fastenerDatabase';
 
 export default (fastener) => {
     const {   
@@ -9,7 +9,7 @@ export default (fastener) => {
         material
     } = fastener;
 
-    const pitch = fastenerMetricSize[size];
+    const pitch = fastenerPitch[size];
 
     return `M${size}x${pitch}-${length}_${headType}${driveType}_${material}`;
 }

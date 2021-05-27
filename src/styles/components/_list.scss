@@ -47,9 +47,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    :first-child {
-      margin-right: $l-size;
-    }
+
+    width: 20rem;
 }
 
 

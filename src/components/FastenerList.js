@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FastenerListItem from './FastenerListItem';
+import selectFasteners from '../utils/selectFasteners';
 
 export const FastenerList = (props) => (
   <div className="list__box">
@@ -33,7 +34,7 @@ export const FastenerList = (props) => (
 
 const mapStateToProps = (state) => {
   return {
-    fasteners: state.fasteners
+    fasteners: selectFasteners(state.fasteners, state.filters)
   };
 };
 

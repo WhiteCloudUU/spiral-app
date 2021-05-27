@@ -1,5 +1,5 @@
 import React from 'react';
-import { fastenerMetricSize } from '../utils/fastenerDatabase';
+import { fastenerSize, fastenerPitch } from '../utils/fastenerDatabase';
 import FastenerInfo from './FastenerInfo';
 
 export default class FastenerForm extends React.Component {
@@ -139,17 +139,20 @@ export default class FastenerForm extends React.Component {
               <option value="" defaultValue disabled>
                 --- Select Metric Size ---
               </option>
-              {Object.keys(fastenerMetricSize).map((size) => {
-                const pitch = fastenerMetricSize[size];
-                return (
-                  <option
-                    value={size}
-                    key={size}>
-                    {`M${size} x ${pitch}`}
-                  </option>
-                )
-              })
+
+              {
+                fastenerSize.map((size) => {
+                  const pitch = fastenerPitch[size];
+                  return (
+                        <option
+                          value={size}
+                          key={size}>
+                          {`M${size} x ${pitch}`}
+                        </option>
+                        )
+                })
               }
+
             </select>
 
             <input
@@ -198,7 +201,8 @@ export default class FastenerForm extends React.Component {
               <option value="class8.8">Steel (Class 8.8)</option>
               <option value="class10.9">Steel (Class 10.9)</option>
               <option value="class12.9">Steel (Class 12.9)</option>
-              <option value="stainless">Stainless Steel</option>
+              <option value="A2">Stainless (18-8, 304, A2)</option>
+              <option value="A4">Stainless (18-10, 316, A4)</option>
               <option value="plastic">Plastic</option>
             </select>
 
