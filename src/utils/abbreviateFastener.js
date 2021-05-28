@@ -1,15 +1,27 @@
 import { fastenerPitch } from '../utils/fastenerDatabase';
 
 export default (fastener) => {
-    const {   
-        size,
-        length,
-        headType,
-        driveType,
-        material
-    } = fastener;
+    if (fastener.type === "screw") {
+        const {   
+            size,
+            length,
+            headType,
+            driveType,
+            material
+        } = fastener;
+    
+        const pitch = fastenerPitch[size];
 
-    const pitch = fastenerPitch[size];
+        return `M${size}-${pitch} x ${length}_${headType}${driveType}_${material}`;
 
-    return `M${size}x${pitch}-${length}_${headType}${driveType}_${material}`;
+    } else if (fastener.type === "pin") {
+        const {   
+            size,
+            length,
+        } = fastener;
+
+        return `Dia.${size}_Lg.${length}`;
+    }
+    
+
 }

@@ -7,7 +7,6 @@ export default class FastenerForm extends React.Component {
     super(props);
 
     this.state = {
-      type: props.fastener ? props.fastener.type : '',
 
       size: props.fastener ? props.fastener.size.toString() : '',
       length: props.fastener ? props.fastener.length.toString() : '',
@@ -85,8 +84,7 @@ export default class FastenerForm extends React.Component {
     } else {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
-        type: this.state.type,
-
+        
         size: parseFloat(this.state.size),
         length: parseInt(this.state.length),
         headType: this.state.headType,
@@ -133,7 +131,6 @@ export default class FastenerForm extends React.Component {
         }
 
         {this.state.error && <p className="form__error">{this.state.error}</p>}
-
         <form className="form">
 
           <div className="form__box">

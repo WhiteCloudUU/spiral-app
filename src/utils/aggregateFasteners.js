@@ -2,16 +2,24 @@ import abbreviateFastener from './abbreviateFastener';
 
 export default (fasteners) => {
     const csvData = [
-        ["Name", "Description", "Quantity"]
+        ["Fastener", "Description", "Quantity"]
     ];
 
     fasteners.forEach((fastener) => {
-        const fastenerName = abbreviateFastener(fastener);
+        const fastenerAbbreviation = abbreviateFastener(fastener);
+
+        const { 
+            thruHolePart='', threadedHolePart='', // Undefined will not show
+            partA='', partB='', // Undefine will not show
+            quantity 
+        } = fastener;
+
         const data = [
-            fastenerName,
-            `${fastener.thruHolePart} - ${fastener.threadedHolePart}`,
-            fastener.quantity
+            fastenerAbbreviation,
+            `${thruHolePart}${partA} - ${threadedHolePart}${partB}`,
+            quantity
         ]
+
         csvData.push(data)
     });
 

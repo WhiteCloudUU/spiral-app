@@ -33,19 +33,20 @@ const ExpenseDashboardPage = (props) => {
 
             </div>
 
-
             <FastenerList />
 
         </div>
     )
 }
 
-const mapStateToProps = (state) => (
-    {
-        fastenerCount: state.fasteners.length,
-        fastenerCsvData: aggregateFasteners(state.fasteners)
+const mapStateToProps = (state) => {
+    const fasteners = [...state.fasteners, ...state.pins];
+    return {
+        fastenerCount: fasteners.length,
+        fastenerCsvData: aggregateFasteners(fasteners)
     }
 
-)
+}
+
 
 export default connect(mapStateToProps)(ExpenseDashboardPage);

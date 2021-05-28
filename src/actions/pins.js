@@ -1,103 +1,101 @@
-import database from '../firebase/firebase'
+import database from '../firebase/firebase';
+import uuid from 'uuid';
 
-// Add Fastener
-export const addPin = (fastener) => {
-    
+// Add Pin
+export const addPin = (pin) => {
     return {
         type: 'ADD_PIN',
-        fastener
+        pin
     }
 }
 
-export const startAddFastener = (fastenerData = {}) => {
+export const startAddPin = (pinData = {}) => {
     const {
+        type = 'pin',
         size = 0,
         length = 0,
-        
-        thruHolePart = '',
-        threadedHolePart = '',
+        partA = '',
+        partB = '',
         quantity = 1
-    } = fastenerData;
+    } = pinData;
 
-    const fastener = { 
-        
+    const pin = { 
+        type,
         size, length, 
-        headType, driveType, 
-        material, 
-        thruHolePart, threadedHolePart,
+        partA, partB,
         quantity
     };
 
     return (dispatch) => {
-        database.ref(`fasteners`).push(fastener)
+        database.ref(`pins`).push(pin)
             .then((ref) => {
-                dispatch(addFastener({
+                dispatch(addPin({
                         id: ref.key,
-                        ...fastener
+                        ...pin
                     }));
             })
     }
 }
 
 
-// Edit Fastener
-export const editFastener = (id, updates) => {
+// Edit Pin
+export const editPin = (id, updates) => {
     return {
-        type: "EDIT_FASTENER",
+        type: "EDIT_PIN",
         id,
         updates
     }
 }
 
-export const startEditFastener = (id, updates) => {
+export const startEditPin = (id, updates) => {
     return (dispatch) => {
-        database.ref(`fasteners/${id}`).update(updates)
+        database.ref(`pins/${id}`).update(updates)
             .then(() => {
-                dispatch(editFastener(id, updates));
+                dispatch(editPin(id, updates));
             })
     }
 }
 
 
-// Remove Fastener
-export const removeFastener = (id) => {
+// Remove Pin
+export const removePin = (id) => {
     return {
-        type: "REMOVE_FASTENER",
+        type: "REMOVE_PIN",
         id
     }
 }
 
-export const startRemoveFastener = (id) => {
+export const startRemovePin = (id) => {
     return (dispatch) => {
-        database.ref(`fasteners/${id}`).remove()
+        database.ref(`pins/${id}`).remove()
             .then(() => {
-                dispatch(removeFastener(id));
+                dispatch(removePin(id));
             })
     }
 }
 
-// Set Fasteners
-export const setFasteners = (fasteners) => {
+// Set Pins
+export const setPins = (pins) => {
     return {
-        type: "SET_FASTENERS",
-        fasteners
+        type: "SET_PINS",
+        pins
     }
 }
 
-export const startSetFasteners = () => {
+export const startSetPins = () => {
     return (dispatch) => {
-        return database.ref(`fasteners`).once('value')
+        return database.ref(`pins`).once('value')
                 .then((snapshot) => {
-                    const fasteners = []
+                    const pins = []
 
                     snapshot.forEach((childSnapshot) => {
-                        fasteners.push({
+                        pins.push({
                             id: childSnapshot.key,
                             ...childSnapshot.val()
                         })
                     });
 
-                    dispatch(setFasteners(fasteners));
+                    dispatch(setPins(pins));
                 })
     }
 };

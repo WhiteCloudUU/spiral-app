@@ -8,8 +8,8 @@ export default class FastenerFormPin extends React.Component {
       size: props.fastener ? props.fastener.size.toString() : '',
       length: props.fastener ? props.fastener.length.toString() : '',
 
-      thruHolePart: props.fastener ? props.fastener.thruHolePart : '',
-      threadedHolePart: props.fastener ? props.fastener.threadedHolePart : '',
+      partA: props.fastener ? props.fastener.partA : '',
+      partB: props.fastener ? props.fastener.partB : '',
 
       quantity: props.fastener ? props.fastener.quantity.toString() : '1',
 
@@ -20,7 +20,7 @@ export default class FastenerFormPin extends React.Component {
   onSizeChange = (e) => {
     const size = e.target.value;
 
-    if (!size || size.match(/^\d{1,2}$/)) {
+    if (!size || size.match(/^\d{1,2}(\.\d{0,1})?$/)) {
       this.setState(() => ({ size }));
     }
   };
@@ -28,19 +28,19 @@ export default class FastenerFormPin extends React.Component {
   onLengthChange = (e) => {
     const length = e.target.value;
 
-    if (!length || length.match(/^\d{1,2}$/)) {
+    if (!length || length.match(/^\d{1,}$/)) {
       this.setState(() => ({ length }));
     }
   };
 
-  onThruHolePartChange = (e) => {
-    const thruHolePart = e.target.value;
-    this.setState(() => ({ thruHolePart }));
+  onPartAChange = (e) => {
+    const partA = e.target.value;
+    this.setState(() => ({ partA }));
   };
 
-  onThreadedHolePartChange = (e) => {
-    const threadedHolePart = e.target.value;
-    this.setState(() => ({ threadedHolePart }));
+  onPartBChange = (e) => {
+    const partB = e.target.value;
+    this.setState(() => ({ partB }));
   };
 
   onQuantityChange = (e) => {
@@ -55,15 +55,15 @@ export default class FastenerFormPin extends React.Component {
     e.preventDefault();
 
     if (!this.state.size || !this.state.length || !this.state.quantity) {
-      this.setState(() => ({ error: 'Please fill out the missing fields.' }));
+      this.setState(() => ({ error: 'Please fill out the missing fields!' }));
     } else {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
         size: parseFloat(this.state.size),
         length: parseInt(this.state.length),
         
-        thruHolePart: this.state.thruHolePart,
-        threadedHolePart: this.state.threadedHolePart,
+        partA: this.state.partA,
+        partB: this.state.partB,
         quantity: parseInt(this.state.quantity)
       });
     }
@@ -131,17 +131,17 @@ export default class FastenerFormPin extends React.Component {
             <input
               type="text"
               className="text-input"
-              placeholder="Thru Hole Part Name"
-              value={this.state.thruHolePart}
-              onChange={this.onThruHolePartChange}
+              placeholder="Part A"
+              value={this.state.partA}
+              onChange={this.onPartAChange}
             />
 
             <input
               type="text"
               className="text-input"
-              placeholder="Thread Hole Part Name"
-              value={this.state.threadedHolePart}
-              onChange={this.onThreadedHolePartChange}
+              placeholder="Part B"
+              value={this.state.partB}
+              onChange={this.onPartBChange}
             />
           </div>
 

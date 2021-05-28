@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import FastenerForm from './FastenerForm';
 import FastenerFormPin from './FastenerFormPin';
 import { startAddFastener } from '../actions/fasteners';
+import { startAddPin } from '../actions/pins';
 
 export class AddFastenerPage extends React.Component {
     state = {
@@ -15,8 +16,13 @@ export class AddFastenerPage extends React.Component {
     }
     
     onSubmit = (fastener) => {
-        this.props.startAddFastener(fastener);
-        this.props.history.push('/');
+        if (this.state.type == "screw") {
+            this.props.startAddFastener(fastener);
+            this.props.history.push('/');
+        } else if (this.state.type == "pin") {
+            this.props.startAddPin(fastener);
+            this.props.history.push('/');
+        }
     }
 
     render() {
@@ -63,7 +69,8 @@ export class AddFastenerPage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => (
     {
-        startAddFastener: (fastener) => dispatch(startAddFastener(fastener))
+        startAddFastener: (fastener) => dispatch(startAddFastener(fastener)),
+        startAddPin: (pin) => dispatch(startAddPin(pin))
     }
 )
 

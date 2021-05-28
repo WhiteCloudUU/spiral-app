@@ -17,7 +17,8 @@ export const FastenerList = (props) => (
 
     <div>
       {
-        props.fasteners.length === 0 ? (
+        props.fasteners.length === 0 ? 
+        (
           <div className="list__message">
             <span>No fasteners</span>
           </div>
@@ -34,7 +35,7 @@ export const FastenerList = (props) => (
 
 const mapStateToProps = (state) => {
   return {
-    fasteners: selectFasteners(state.fasteners, state.filters)
+    fasteners: selectFasteners([...state.fasteners, ...state.pins], state.filters)
   };
 };
 
