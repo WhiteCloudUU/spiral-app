@@ -1,5 +1,5 @@
 import React from 'react';
-import { fastenerSize, fastenerPitch } from '../utils/fastenerDatabase';
+import { screwSize, screwPitch } from '../utils/fastenerDatabase';
 import FastenerInfo from './FastenerInfo';
 
 export default class FastenerForm extends React.Component {
@@ -144,8 +144,8 @@ export default class FastenerForm extends React.Component {
                 --- Select Metric Size ---
               </option>
               {
-                fastenerSize.map((size) => {
-                  const pitch = fastenerPitch[size];
+                screwSize.map((size) => {
+                  const pitch = screwPitch[size];
                   return (
                     <option
                       value={size}

@@ -1,4 +1,4 @@
-export const fastenerTechInfo = {
+export const screwTechInfo = {
     1.6: {
         preload: {
             "class8.8": 530,
@@ -14,7 +14,7 @@ export const fastenerTechInfo = {
             "A2": 0.17,
             "A4": 0.22
         },
-        minEngagement: 0
+        minEngagement: 1.18
     },
 
     2: {
@@ -32,7 +32,7 @@ export const fastenerTechInfo = {
             "A2": 0.35,
             "A4": 0.46
         },
-        minEngagement: 0
+        minEngagement: 1.52
     },
 
     2.5: {
@@ -50,7 +50,7 @@ export const fastenerTechInfo = {
             "A2": 0.72,
             "A4": 0.97
         },
-        minEngagement: 0
+        minEngagement: 1.96
     },
 
     3: {
@@ -68,7 +68,7 @@ export const fastenerTechInfo = {
             "A2": 1.26,
             "A4": 1.7
         },
-        minEngagement: 0
+        minEngagement: 2.39
     },
 
     4: {
@@ -86,7 +86,7 @@ export const fastenerTechInfo = {
             "A2": 2.9,
             "A4": 3.8
         },
-        minEngagement: 0
+        minEngagement: 3.15
     },
 
     5: {
@@ -104,7 +104,7 @@ export const fastenerTechInfo = {
             "A2": 5.7,
             "A4": 7.6
         },
-        minEngagement: 0
+        minEngagement: 4.09
     },
 
     6: {
@@ -122,7 +122,7 @@ export const fastenerTechInfo = {
             "A2": 10,
             "A4": 13.2
         },
-        minEngagement: 0
+        minEngagement: 5.03
     },
 
     8: {
@@ -140,7 +140,7 @@ export const fastenerTechInfo = {
             "A2": 24.1,
             "A4": 32.1
         },
-        minEngagement: 0
+        minEngagement: 6.78
     },
 
     10: {
@@ -159,12 +159,12 @@ export const fastenerTechInfo = {
             "A2": 47.7,
             "A4": 63
         },
-        minEngagement: 0
+        minEngagement: 8.48
     }
 
 }
 
-export const fastenerPitch = {
+export const screwPitch = {
     1.6: 0.35, 
     2: 0.4,
     2.5: 0.45,
@@ -176,7 +176,7 @@ export const fastenerPitch = {
     10: 1.5
 }
 
-export const fastenerSize = [1.6, 2, 2.5, 3, 4, 5, 6, 8, 10];
+export const screwSize = [1.6, 2, 2.5, 3, 4, 5, 6, 8, 10];
 
 
 /*

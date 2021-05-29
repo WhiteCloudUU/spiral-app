@@ -9,8 +9,8 @@ export default (fasteners) => {
         const fastenerAbbreviation = abbreviateFastener(fastener);
 
         const { 
-            thruHolePart='', threadedHolePart='', // Undefined will not show
-            partA='', partB='', // Undefine will not show
+            thruHolePart='', threadedHolePart='', // Will not show if undefined
+            partA='', partB='', // Will not show if undefined
             quantity 
         } = fastener;
 
