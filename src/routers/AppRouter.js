@@ -7,16 +7,21 @@ import AddFastenerPage from '../components/AddFastenerPage';
 import EditFastenerPage from '../components/EditFastenerPage';
 import NotFoundPage from '../components/NotFoundPage';
 
+import LoginPage from '../components/LoginPage';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+
 export const history = createHistory();
 
 const AppRouter = () => (
     <Router history={history}>
         <div>
-            <Header />
+            
             <Switch>
-                <Route path="/" component={FastenerDashboardPage} exact={true}/>
-                <Route path="/create" component={AddFastenerPage} />
-                <Route path="/edit/:id" component={EditFastenerPage} />
+                <PublicRoute path="/" component={LoginPage} exact={true}/>
+                <PrivateRoute path="/dashboard" component={FastenerDashboardPage}/>
+                <PrivateRoute path="/create" component={AddFastenerPage} />
+                <PrivateRoute path="/edit/:id" component={EditFastenerPage} />
                 <Route component={NotFoundPage} />
             </Switch>
         </div>

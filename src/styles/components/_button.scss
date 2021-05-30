@@ -20,12 +20,17 @@
     
 }
 
+.button-link {
+    font-size: $large-font;
+    font-weight: 300;
+    
+    background-color: $off-white;
 
-// Not used
-.button--link {
-    background: none;
-}
+    color: $off-black;
+    &:hover {
+        color: black;
+    }
 
-.button--secondary {
-    background: #888888;
+    border: none;
+    padding: $s-size;
 }

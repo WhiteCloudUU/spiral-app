@@ -1,10 +1,16 @@
 .header__title {
     text-decoration: none;
     text-align: center;
+
+    font-size: large;
+
     color: $off-black;
     &:hover {
         color: black;
     }
+
+
+    padding-left: 25rem;
 
 }
 
@@ -12,18 +18,9 @@
     border: 2px solid black;
     border-radius: $s-size;
     background-color: $off-white;
-}
 
-
-// Not used
-.header {
-    background: $off-white;
-}
-
-.header__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    padding: $s-size 0;
 }
+

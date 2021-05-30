@@ -3,15 +3,23 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
+
 import { startSetFasteners } from './actions/fasteners';
 import { startSetPins } from './actions/pins';
-import LoadingPage from './components/LoadingPage';
+import { login, logout } from './actions/auth';
+
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
+
 import { firebase } from './firebase/firebase';
+import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
+
+store.subscribe(() => {
+  console.log(store.getState());
+})
 
 const jsx = (
   <Provider store={store}>
@@ -21,18 +29,42 @@ const jsx = (
 
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
-store.dispatch(startSetFasteners())
-  .then(() => {
-    return store.dispatch(startSetPins());
-  })
-  .then(() => {
+
+let hasRendered = false;
+const renderApp = () => {
+  if (!hasRendered) {
     ReactDOM.render(jsx, document.getElementById('app'));
-  });
+    hasRendered = true;
+  }
+}
 
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log("log in", user.uid);
+    
+    store.dispatch(login(user.uid));
 
-store.subscribe(() => {
-  console.log(store.getState());
+    store.dispatch(startSetFasteners())
+      .then(() => {
+        return store.dispatch(startSetPins());
+      })
+      .then(() => {
+        renderApp();
+        if (history.location.pathname === '/') {
+          history.push('/dashboard');
+        }
+      });
+   
+  } else {
+    console.log("log out.");
+
+    store.dispatch(logout());
+    renderApp();
+    history.push('/');
+  }
 })
+
+
 
 
 // import { addFastener, removeFastener, editFastener } from './actions/fasteners';
