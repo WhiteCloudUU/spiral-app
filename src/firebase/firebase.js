@@ -14,8 +14,9 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const microsoftAuthProvider = new firebase.auth.OAuthProvider('microsoft.com');
 
-export { firebase, googleAuthProvider, database as default };
+export { firebase, googleAuthProvider, microsoftAuthProvider, database as default };
 
 /* Reference */
 

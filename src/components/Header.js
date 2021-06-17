@@ -10,21 +10,22 @@ const Header = ({ startLogout }) => (
 
             <Link 
                 to="/dashboard" 
-                className="header__title">
+                className="header__title"
+            >
                 <h1>Spiral</h1>
             </Link>
             
-            <button
-                onClick={startLogout}
-                className="button-link"
-            >
-                Log out
-            </button>
-        
+            
         </div>
 
-        
-
+        <div className="header__button">
+            <button
+                    onClick={startLogout}
+                    className="button-link"
+                >
+                    Log out
+            </button>
+        </div>
 
     </div>
 );

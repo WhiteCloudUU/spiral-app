@@ -20,7 +20,7 @@ export const FastenerList = (props) => (
         props.fasteners.length === 0 ? 
         (
           <div className="list__message">
-            <span>No fasteners</span>
+            <span> No fasteners </span>
           </div>
         ) : (
           props.fasteners.map((fastener) => {

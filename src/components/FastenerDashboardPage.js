@@ -10,13 +10,14 @@ const ExpenseDashboardPage = (props) => {
 
     return (
         <div className="container">
+        
             <FastenerFilters />
             
             <div className="double-button">
 
                 <CSVLink
                     className="button"
-                    filename={"Spiral-fasteners_list.csv"}
+                    filename={"Spirals.csv"}
                     data={props.fastenerCsvData}
                     onClick={() => {
                         return props.fastenerCount !== 0;

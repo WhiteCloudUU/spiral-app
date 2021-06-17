@@ -2,16 +2,14 @@
     text-decoration: none;
     text-align: center;
 
-    font-size: large;
+    font-size: $large-font;
 
-    color: $off-black;
+    color: black;
     &:hover {
-        color: black;
+        font-size: #{$large-font * 1.2};
     }
 
-
-    padding-left: 25rem;
-
+    
 }
 
 .header__box {
@@ -20,7 +18,15 @@
     background-color: $off-white;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+
+    // Constant height so that the header won't destory the UI when hover
+    height: 10rem; 
+    
+}
+
+.header__button {
+    text-align: right;
 }
 

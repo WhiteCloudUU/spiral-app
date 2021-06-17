@@ -10,9 +10,9 @@ export default (fastener) => {
             material
         } = fastener;
     
-        const pitch = screwPitch[size];
+        // const pitch = screwPitch[size];
 
-        return `M${size}-${pitch} x ${length}_${headType}${driveType}_${material}`;
+        return `M${size}x${length}_${headType}${driveType}_${material}`;
 
     } else if (fastener.type === "pin") {
 

@@ -1,3 +1,9 @@
+/*
+    Technical Info:
+        1. minimum engagement length: related to the d
+        2. preload: related to the class and d
+        3. preload torque: K * preload * d
+*/
 export const screwTechInfo = {
     1.6: {
         preload: {
@@ -164,6 +170,9 @@ export const screwTechInfo = {
 
 }
 
+/*
+    Screw pitch
+*/
 export const screwPitch = {
     1.6: 0.35, 
     2: 0.4,
@@ -176,15 +185,18 @@ export const screwPitch = {
     10: 1.5
 }
 
+/*
+    Screw size
+*/
 export const screwSize = [1.6, 2, 2.5, 3, 4, 5, 6, 8, 10];
 
 
 /*
-
-minimum engagement length: related to the d
-
-preload: related to the class and d
-
-preload torque: K * preload * d
-
+    Screw head type
 */
+
+export const screwHeadType = {
+    "Socket Head": "SH",
+    "Rounded Head": "RH",
+    "Flat Head": "FH"
+}

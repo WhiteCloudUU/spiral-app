@@ -1,5 +1,5 @@
 import React from 'react';
-import { screwSize, screwPitch } from '../utils/fastenerDatabase';
+import { screwSize, screwPitch, screwHeadType } from '../utils/fastenerDatabase';
 import FastenerInfo from './FastenerInfo';
 
 export default class FastenerForm extends React.Component {
@@ -93,6 +93,7 @@ export default class FastenerForm extends React.Component {
         thruHolePart: this.state.thruHolePart,
         threadedHolePart: this.state.threadedHolePart,
         quantity: parseInt(this.state.quantity)
+
       });
     }
   };
@@ -144,6 +145,7 @@ export default class FastenerForm extends React.Component {
                 --- Select Metric Size ---
               </option>
               {
+                
                 screwSize.map((size) => {
                   const pitch = screwPitch[size];
                   return (
@@ -174,9 +176,22 @@ export default class FastenerForm extends React.Component {
               <option value="" defaultValue disabled>
                 --- Select Head Type ---
               </option>
-              <option value="SH">Socket Head</option>
-              <option value="RH">Rounded Head</option>
-              <option value="FH">Flat Head</option>
+              {
+                Object.entries(screwHeadType).map(([key, value]) => {
+                  console.log(screwHeadType);
+                  console.log(key);
+                  console.log(value);
+                  return (
+                    <option
+                      value={value}
+                      key={key}
+                    >
+                      {key}
+                    </option>
+                  )
+                })
+              }
+
             </select>
 
             <select

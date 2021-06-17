@@ -8,7 +8,7 @@ const FastenerListItem = (props) => {
     const { 
         id, 
         thruHolePart, threadedHolePart, // Undefined will not show
-        partA, partB, // Undefine will not show
+        partA, partB, // Undefined will not show
         quantity 
     } = props.fastener;
 

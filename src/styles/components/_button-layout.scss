@@ -13,4 +13,13 @@
 }
 
 
+.stack-buttons {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+        margin-top: $s-size;
+    }
+}
+
   

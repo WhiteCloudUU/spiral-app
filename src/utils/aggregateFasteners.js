@@ -11,7 +11,7 @@ export default (fasteners) => {
         const { 
             thruHolePart='', threadedHolePart='', // Will not show if undefined
             partA='', partB='', // Will not show if undefined
-            quantity 
+            quantity
         } = fastener;
 
         const data = [

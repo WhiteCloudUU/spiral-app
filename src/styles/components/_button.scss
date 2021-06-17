@@ -24,13 +24,14 @@
     font-size: $large-font;
     font-weight: 300;
     
-    background-color: $off-white;
+    border: none;
 
     color: $off-black;
+    background-color: white;
     &:hover {
         color: black;
     }
 
-    border: none;
-    padding: $s-size;
+    
+    padding-top: $s-size;
 }
