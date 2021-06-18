@@ -194,9 +194,46 @@ export const screwSize = [1.6, 2, 2.5, 3, 4, 5, 6, 8, 10];
 /*
     Screw head type
 */
-
 export const screwHeadType = {
-    "Socket Head": "SH",
-    "Rounded Head": "RH",
-    "Flat Head": "FH"
+    "SH": "Socket Head",
+    "RH": "Rounded Head",
+    "FH": "Flat Head"
+    // "Socket Head": "SH",
+    // "Rounded Head": "RH",
+    // "Flat Head": "FH"
 }
+
+/*
+    Screw drive type
+*/
+export const screwDriveType = {
+    "HX": "Hex",
+    "TX": "Torx",
+    "SL": "Slotted",
+    "CS": "Cruciform"
+    // "Hex": "HX",
+    // "Torx": "TX",
+    // "Slotted": "SL",
+    // "Cruciform": "CS"
+}
+
+/*
+    Screw material
+*/
+export const screwMaterial = {
+    "class8.9": "Steel (Class 8.9)",
+    "class10.9": "Steel (Class 10.9)",
+    "class12.9": "Steel (Class 12.9)",
+    "A2": "Stainless (18-8, 304, A2)",
+    "A4": "Stainless (18-10, 316, A4)",
+    "plastic": "Plastic",
+    "undefined": "I don't care (You sure?)"
+    // "Steel (Class 8.9)": "class8.9",
+    // "Steel (Class 10.9)": "class10.9",
+    // "Steel (Class 12.9)": "class12.9",
+    // "Stainless (18-8, 304, A2)": "A2",
+    // "Stainless (18-10, 316, A4)": "A4",
+    // "Plastic": "plastic",
+    // "I don't care (You sure?)": "undefined"
+}
+

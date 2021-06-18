@@ -11,7 +11,7 @@ export const FastenerList = (props) => (
       </div>
 
       <div>
-        Description / Quantity
+        Members / Quantity
       </div>
     </div>
 
