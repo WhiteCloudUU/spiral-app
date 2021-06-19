@@ -1,15 +1,33 @@
 import React from 'react';
 import { screwTechInfo } from '../utils/fastenerDatabase';
+import generateMcmasterLink from '../utils/generateMcmasterLink';
 
 const FastenerInfo = (props) => {
     const minEngagement = screwTechInfo[props.size]["minEngagement"];
     const preload = screwTechInfo[props.size]["preload"][props.material];
     const tighteningTorque = screwTechInfo[props.size]["tighteningTorque"][props.material];
+    
+    const link = generateMcmasterLink(
+        props.size, 
+        props.length, 
+        props.headType,
+        props.driveType
+        );
 
+    console.log(link);
     return (
         <div className="form__box">
             <p className="form__title">Technical Information</p>
-            
+
+            <div className="info__link">
+                <a 
+                    className="info__label"
+                    href={link}
+                >
+                    Guide me way to Mcmaster
+                </a>
+            </div>
+
             <div className="info__item">
                 <label className="info__label">Preload (kN)</label>
                 <input

@@ -24,9 +24,10 @@
 .form__title {
     margin: 0 0 $s-size 0;
 
-    font-style: bold;
-    font-size: $large-font;
     color: $off-black;
+    font-size: $large-font;
+    font-style: italic;
+    font-weight: 300;
 
     text-align: center;
 }

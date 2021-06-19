@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .info__label {
@@ -14,5 +13,9 @@
 .info__message {
     font-style: italic;
     color: $off-black;
+}
+
+.info__link {
+    text-align: center;
 }
 

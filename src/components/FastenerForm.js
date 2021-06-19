@@ -284,10 +284,14 @@ export default class FastenerForm extends React.Component {
         </form>
 
         {
+          // Distinguish add page and edit page
           (this.state.size && this.state.material)
           &&
           <FastenerInfo
             size={this.state.size}
+            length={this.state.length}
+            headType={this.state.headType}
+            driveType={this.state.driveType}
             material={this.state.material}
           />
         }

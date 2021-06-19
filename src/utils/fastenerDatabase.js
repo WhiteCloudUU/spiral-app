@@ -210,7 +210,7 @@ export const screwDriveType = {
     "HX": "Hex",
     "TX": "Torx",
     "SL": "Slotted",
-    "CS": "Cruciform"
+    "Ph": "Phillips"
     // "Hex": "HX",
     // "Torx": "TX",
     // "Slotted": "SL",
