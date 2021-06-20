@@ -14,7 +14,6 @@ const FastenerInfo = (props) => {
         props.driveType
         );
 
-    console.log(link);
     return (
         <div className="form__box">
             <p className="form__title">Technical Information</p>
@@ -24,7 +23,7 @@ const FastenerInfo = (props) => {
                     className="info__label"
                     href={link}
                 >
-                    Guide me way to Mcmaster
+                    Guide me the way to Mcmaster
                 </a>
             </div>
 

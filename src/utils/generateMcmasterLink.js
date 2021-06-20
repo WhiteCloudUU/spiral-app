@@ -1,6 +1,5 @@
 import { 
-    screwHeadType, screwDriveType,
-    screwMaterial
+    screwHeadType, screwDriveType
   } from '../utils/fastenerDatabase';
 
 export default (size, length, headType, driveType) => {

@@ -1,3 +1,4 @@
+// FastenerList
 .list__box {
     border: 2px solid black;
     border-radius: $s-size;
@@ -41,10 +42,23 @@
     }
 }
 
+.list__message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+  color: grey;
+  font-style: italic;
+  margin: $s-size 0 0 0;
+}
+
+
+// FastenerListItem
 
 .list-item__title {
   word-break: break-all;
   font-weight: bold;
+  
 }
 
 .list-item__box {
@@ -56,12 +70,3 @@
 }
 
 
-.list__message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-   
-  color: grey;
-  font-style: italic;
-  margin: $s-size 0 0 0;
-}

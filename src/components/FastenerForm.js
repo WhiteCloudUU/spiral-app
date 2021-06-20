@@ -292,6 +292,7 @@ export default class FastenerForm extends React.Component {
             length={this.state.length}
             headType={this.state.headType}
             driveType={this.state.driveType}
+            
             material={this.state.material}
           />
         }

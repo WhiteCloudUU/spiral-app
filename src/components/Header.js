@@ -12,7 +12,7 @@ const Header = ({ startLogout }) => (
                 to="/dashboard" 
                 className="header__title"
             >
-                <h1>Spiral</h1>
+                <h1>Spirals</h1>
             </Link>
             
             
