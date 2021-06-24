@@ -25,8 +25,8 @@ export class LoginPage extends React.Component {
     onLogin = () => {
         const email = this.state.email;
         const password = this.state.password;
-        console.log(email);
-        console.log(password);
+        // console.log(email);
+        // console.log(password);
         this.props.startLoginWithEmailAndPassword(email, password);
     };
 

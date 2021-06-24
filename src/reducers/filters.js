@@ -13,6 +13,13 @@ export default (state = filterDefaultState, action) => {
                 ...state,
                 fastenerType: action.fastenerType
             }
+
+        case "SET_FASTENER_PROJECT_FILTER":
+            return {
+                ...state,
+                fastenerProject: action.fastenerProject
+            }
+
         case "SET_SORT_BY":
             return {
                 ...state,

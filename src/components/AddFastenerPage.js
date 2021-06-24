@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import FastenerProjectSelection from './FastenerProjectSelection';
 import FastenerForm from './FastenerForm';
 import FastenerFormPin from './FastenerFormPin';
 import { startAddFastener } from '../actions/fasteners';
@@ -19,7 +20,8 @@ export class AddFastenerPage extends React.Component {
         if (this.state.type == "screw") {
             this.props.startAddFastener(fastener);
             this.props.history.push('/');
-        } else if (this.state.type == "pin") {
+        } 
+        else if (this.state.type == "pin") {
             this.props.startAddPin(fastener);
             this.props.history.push('/');
         }
@@ -28,6 +30,8 @@ export class AddFastenerPage extends React.Component {
     render() {
         return (
             <div className="container">
+            
+                <FastenerProjectSelection />
 
                 <div className="form__box">
                     <p className="form__title">Type</p>
@@ -53,6 +57,7 @@ export class AddFastenerPage extends React.Component {
                         />
                     )
                 }
+
                 {
                     this.state.type === "pin" &&
                     (
