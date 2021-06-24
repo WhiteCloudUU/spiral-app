@@ -16,7 +16,16 @@ export const startLoginWithGoogle = () => {
 export const startLoginWithMicrosoft = () => {
     return () => {
         return firebase.auth().signInWithPopup(microsoftAuthProvider);
-        
+    };
+};
+
+export const startLoginWithEmailAndPassword = (email, password) => {
+    return () => {
+        firebase.auth().signInWithEmailAndPassword(email, password)
+        .catch((error) => {
+                console.log(error.code);
+                console.log(error.message);
+        });
     };
 };
 

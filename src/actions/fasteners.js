@@ -2,7 +2,6 @@ import database from '../firebase/firebase'
 
 // Add Fastener
 export const addFastener = (fastener) => {
-    
     return {
         type: 'ADD_FASTENER',
         fastener
@@ -10,29 +9,32 @@ export const addFastener = (fastener) => {
 }
 
 export const startAddFastener = (fastenerData = {}) => {
-    const {
-        type = 'screw',
-        size = 0,
-        length = 0,
-        headType = '',
-        driveType = '',
-        material = '',
-        thruHolePart = '',
-        threadedHolePart = '',
-        quantity = 1
-    } = fastenerData;
+   
+    return (dispatch, getState) => {
+        const {
+            type = 'screw',
+            size = 0,
+            length = 0,
+            headType = '',
+            driveType = '',
+            material = '',
+            thruHolePart = '',
+            threadedHolePart = '',
+            quantity = 1
+        } = fastenerData;
+    
+        const fastener = { 
+            type,
+            size, length, 
+            headType, driveType, 
+            material, 
+            thruHolePart, threadedHolePart,
+            quantity
+        };
 
-    const fastener = { 
-        type,
-        size, length, 
-        headType, driveType, 
-        material, 
-        thruHolePart, threadedHolePart,
-        quantity
-    };
+        const uid = getState().auth.uid;
 
-    return (dispatch) => {
-        database.ref(`fasteners`).push(fastener)
+        database.ref(`users/${uid}/fasteners`).push(fastener)
             .then((ref) => {
                 dispatch(addFastener({
                         id: ref.key,
@@ -53,8 +55,9 @@ export const editFastener = (id, updates) => {
 }
 
 export const startEditFastener = (id, updates) => {
-    return (dispatch) => {
-        database.ref(`fasteners/${id}`).update(updates)
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        database.ref(`users/${uid}/fasteners/${id}`).update(updates)
             .then(() => {
                 dispatch(editFastener(id, updates));
             })
@@ -71,8 +74,9 @@ export const removeFastener = (id) => {
 }
 
 export const startRemoveFastener = (id) => {
-    return (dispatch) => {
-        database.ref(`fasteners/${id}`).remove()
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        database.ref(`users/${uid}/fasteners/${id}`).remove()
             .then(() => {
                 dispatch(removeFastener(id));
             })
@@ -88,8 +92,10 @@ export const setFasteners = (fasteners) => {
 }
 
 export const startSetFasteners = () => {
-    return (dispatch) => {
-        return database.ref(`fasteners`).once('value')
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+
+        return database.ref(`users/${uid}/fasteners`).once('value')
                 .then((snapshot) => {
                     const fasteners = []
 

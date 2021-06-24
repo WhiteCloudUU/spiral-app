@@ -10,24 +10,27 @@ export const addPin = (pin) => {
 }
 
 export const startAddPin = (pinData = {}) => {
-    const {
-        type = 'pin',
-        size = 0,
-        length = 0,
-        partA = '',
-        partB = '',
-        quantity = 1
-    } = pinData;
+    
 
-    const pin = { 
-        type,
-        size, length, 
-        partA, partB,
-        quantity
-    };
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
 
-    return (dispatch) => {
-        database.ref(`pins`).push(pin)
+        const {
+            type = 'pin',
+            size = 0,
+            length = 0,
+            partA = '',
+            partB = '',
+            quantity = 1
+        } = pinData;
+    
+        const pin = { 
+            type,
+            size, length, 
+            partA, partB,
+            quantity
+        };
+        database.ref(`users/${uid}/pins`).push(pin)
             .then((ref) => {
                 dispatch(addPin({
                         id: ref.key,
@@ -48,8 +51,10 @@ export const editPin = (id, updates) => {
 }
 
 export const startEditPin = (id, updates) => {
-    return (dispatch) => {
-        database.ref(`pins/${id}`).update(updates)
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+
+        database.ref(`users/${uid}/pins/${id}`).update(updates)
             .then(() => {
                 dispatch(editPin(id, updates));
             })
@@ -66,8 +71,10 @@ export const removePin = (id) => {
 }
 
 export const startRemovePin = (id) => {
-    return (dispatch) => {
-        database.ref(`pins/${id}`).remove()
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+
+        database.ref(`users/${uid}/pins/${id}`).remove()
             .then(() => {
                 dispatch(removePin(id));
             })
@@ -83,8 +90,10 @@ export const setPins = (pins) => {
 }
 
 export const startSetPins = () => {
-    return (dispatch) => {
-        return database.ref(`pins`).once('value')
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+
+        return database.ref(`users/${uid}/pins`).once('value')
                 .then((snapshot) => {
                     const pins = []
 

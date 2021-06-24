@@ -138,7 +138,6 @@ export default class FastenerForm extends React.Component {
 
         {this.state.error && <p className="form__error">{this.state.error}</p>}
         <form className="form">
-
           <div className="form__box">
             <p className="form__title">Parameters</p>
             <select
