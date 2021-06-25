@@ -116,13 +116,13 @@ export default class FastenerForm extends React.Component {
                     onClick={this.props.onRemoveFastener}
                   >
                     Remove Fastener
-                </button>
+                  </button>
                 </div>
 
                 <div>
                   <button className="button" onClick={this.onSubmit}>
                     Save Fastener
-                </button>
+                  </button>
                 </div>
               </div>
             )
@@ -131,7 +131,7 @@ export default class FastenerForm extends React.Component {
               <div className="single-button">
                 <button className="button" onClick={this.onSubmit}>
                   Save Fastener
-              </button>
+                </button>
               </div>
             )
         }

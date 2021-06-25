@@ -4,6 +4,7 @@ import moment from 'moment'
 const filterDefaultState = {
     fastenerType: '',
     sortBy: '',
+    fastenerProject: ''
 };
 
 export default (state = filterDefaultState, action) => {
@@ -15,6 +16,7 @@ export default (state = filterDefaultState, action) => {
             }
 
         case "SET_FASTENER_PROJECT_FILTER":
+            
             return {
                 ...state,
                 fastenerProject: action.fastenerProject

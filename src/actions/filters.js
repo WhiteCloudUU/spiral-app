@@ -19,6 +19,7 @@ export const setSortBy = (sortBy = "") => (
 export const setFastenerProjectFilter = (fastenerProject = "") => (
     {
         type: "SET_FASTENER_PROJECT_FILTER",
+        
         fastenerProject
     }
 )

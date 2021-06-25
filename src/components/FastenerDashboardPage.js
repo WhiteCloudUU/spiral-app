@@ -46,7 +46,6 @@ const mapStateToProps = (state) => {
         fastenerCount: fasteners.length,
         fastenerCsvData: aggregateFasteners(fasteners)
     }
-
 }
 
 

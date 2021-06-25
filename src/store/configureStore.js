@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import fastenerReducer from '../reducers/fasteners';
 import pinReducer from '../reducers/pins';
+import projectReducer from '../reducers/projects'
 import filtersReducer from '../reducers/filters';
 import authReducer from '../reducers/auth';
 
@@ -13,6 +14,7 @@ export default () => {
     combineReducers({
       fasteners: fastenerReducer,
       pins: pinReducer,
+      projects: projectReducer,
       filters: filtersReducer,
       auth: authReducer
     }),

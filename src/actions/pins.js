@@ -1,5 +1,5 @@
 import database from '../firebase/firebase';
-import uuid from 'uuid';
+
 
 // Add Pin
 export const addPin = (pin) => {

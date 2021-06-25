@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 
 import { startSetFasteners } from './actions/fasteners';
 import { startSetPins } from './actions/pins';
+import { startSetProjects } from './actions/projects';
 import { login, logout } from './actions/auth';
 
 import 'normalize.css/normalize.css';
@@ -39,13 +40,16 @@ const renderApp = () => {
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log("log in", user.uid);
+    console.log("log in", user);
     
     store.dispatch(login(user.uid));
 
     store.dispatch(startSetFasteners())
       .then(() => {
         return store.dispatch(startSetPins());
+      })
+      .then(() => {
+        return store.dispatch(startSetProjects());
       })
       .then(() => {
         renderApp();

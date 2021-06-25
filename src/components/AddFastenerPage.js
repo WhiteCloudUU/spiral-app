@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FastenerProjectSelection from './FastenerProjectSelection';
+import FastenerProjects from './FastenerProjects';
 import FastenerForm from './FastenerForm';
 import FastenerFormPin from './FastenerFormPin';
 import { startAddFastener } from '../actions/fasteners';
@@ -30,8 +30,8 @@ export class AddFastenerPage extends React.Component {
     render() {
         return (
             <div className="container">
-            
-                <FastenerProjectSelection />
+
+                <FastenerProjects />
 
                 <div className="form__box">
                     <p className="form__title">Type</p>
