@@ -18,6 +18,10 @@
         margin-bottom: $s-size;
     }
 
+    & .single-button {
+        margin-bottom: 0; // Used for "Add project" button
+    }
+
     margin-bottom: $m-size;
 }
 

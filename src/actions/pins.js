@@ -21,14 +21,16 @@ export const startAddPin = (pinData = {}) => {
             length = 0,
             partA = '',
             partB = '',
-            quantity = 1
+            quantity = 1,
+            project = ""
         } = pinData;
     
         const pin = { 
             type,
             size, length, 
             partA, partB,
-            quantity
+            quantity,
+            project
         };
         database.ref(`users/${uid}/pins`).push(pin)
             .then((ref) => {

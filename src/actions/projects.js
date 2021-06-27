@@ -34,7 +34,7 @@ export const startAddProject = (projectData = {}) => {
 // Edit Project
 export const editProject = (id, updates) => {
     return {
-        type: "EDIT_project",
+        type: "EDIT_PROJECT",
         id,
         updates
     }
@@ -50,7 +50,6 @@ export const startEditProject = (id, updates) => {
             })
     }
 }
-
 
 // Remove Project
 export const removeProject = (id) => {

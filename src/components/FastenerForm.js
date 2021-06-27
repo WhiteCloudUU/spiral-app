@@ -97,8 +97,8 @@ export default class FastenerForm extends React.Component {
         material: this.state.material,
         thruHolePart: this.state.thruHolePart,
         threadedHolePart: this.state.threadedHolePart,
-        quantity: parseInt(this.state.quantity)
-
+        quantity: parseInt(this.state.quantity),
+        project: this.props.project
       });
     }
   };

@@ -221,7 +221,7 @@ export const screwDriveType = {
     Screw material
 */
 export const screwMaterial = {
-    "class8.9": "Steel (Class 8.9)",
+    "class8.8": "Steel (Class 8.8)",
     "class10.9": "Steel (Class 10.9)",
     "class12.9": "Steel (Class 12.9)",
     "A2": "Stainless (18-8, 304, A2)",

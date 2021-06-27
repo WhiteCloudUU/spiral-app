@@ -20,7 +20,8 @@ export const startAddFastener = (fastenerData = {}) => {
             material = '',
             thruHolePart = '',
             threadedHolePart = '',
-            quantity = 1
+            quantity = 1,
+            project = ''
         } = fastenerData;
     
         const fastener = { 
@@ -29,7 +30,8 @@ export const startAddFastener = (fastenerData = {}) => {
             headType, driveType, 
             material, 
             thruHolePart, threadedHolePart,
-            quantity
+            quantity,
+            project
         };
 
         const uid = getState().auth.uid;

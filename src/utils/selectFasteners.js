@@ -1,9 +1,10 @@
-export default (fasteners, { fastenerType, sortBy }) => {
+export default (fasteners, { fastenerType, fastenerProject, sortBy }) => {
     return fasteners.filter((fastener) => {
 
-        const typeMatch = fastenerType ? fastener.type === fastenerType : true
-    
-        return typeMatch;
+        const typeMatch = fastenerType ? fastener.type === fastenerType : true;
+        const projectMatch = fastenerProject ? fastener.project === fastenerProject : true;
+
+        return typeMatch && projectMatch;
 
     }).sort((a, b) => {
         if (sortBy === "size") {

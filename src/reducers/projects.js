@@ -11,6 +11,7 @@ export default (state = projectDefaultState, action) => {
 
         case "EDIT_PROJECT":
             return state.map((project) => {
+                
                 if (project.id === action.id) {
                     return {
                         ...project,

@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import { CSVLink, CSVDownload } from "react-csv";
 import FastenerFilters from './FastenerFilter';
 import FastenerList from './FastenerList';
+import FastenerProjects from './FastenerProjects';
 import aggregateFasteners from '../utils/aggregateFasteners';
 
 const ExpenseDashboardPage = (props) => {
 
     return (
         <div className="container">
-        
+            <FastenerProjects from='FastenerDashboardPage' />
+
             <FastenerFilters />
             
             <div className="double-button">
@@ -26,7 +28,6 @@ const ExpenseDashboardPage = (props) => {
                 >
                     Download as CSV
                 </CSVLink>
-
 
                 <Link to="/create" className="button">
                     Add Fastener

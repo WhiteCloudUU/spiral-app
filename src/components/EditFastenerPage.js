@@ -15,8 +15,7 @@ export class EditFastenerPage extends React.Component {
             this.props.startEditPin(this.props.fastener.id, fastener);
         }
 
-        this.props.history.push('/');
-
+        this.props.history.push('/')
     }
 
     onRemoveFastener = () => {
@@ -24,7 +23,7 @@ export class EditFastenerPage extends React.Component {
             this.props.startRemoveFastener(this.props.fastener.id);
             
         } else if (this.props.fastener.type == "pin") {
-            this.props.startRemovetPin(this.props.fastener.id);
+            this.props.startRemovePin(this.props.fastener.id);
         }
         
         this.props.history.push('/');
@@ -67,6 +66,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch) => ({
     startRemoveFastener: (id) => dispatch(startRemoveFastener(id)),
     startEditFastener: (id, fastener) => dispatch(startEditFastener(id, fastener)),
+
     startRemovePin: (id) => dispatch(startRemovePin(id)),
     startEditPin: (id, pin) => dispatch(startEditPin(id, pin))
 });

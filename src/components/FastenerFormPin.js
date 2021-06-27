@@ -53,7 +53,7 @@ export default class FastenerFormPin extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
+    
     if (!this.state.size || !this.state.length || !this.state.quantity) {
       this.setState(() => ({ error: 'Please fill out the missing fields!' }));
     } else {
@@ -64,7 +64,8 @@ export default class FastenerFormPin extends React.Component {
         
         partA: this.state.partA,
         partB: this.state.partB,
-        quantity: parseInt(this.state.quantity)
+        quantity: parseInt(this.state.quantity),
+        project: this.props.project
       });
     }
   };
